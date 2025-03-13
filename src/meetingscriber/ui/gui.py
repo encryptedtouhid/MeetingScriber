@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import scrolledtext
 from threading import Thread
-from services.audio_capture import AudioCapture
-from services.transcriber import Transcriber
-from utils.file_utils import FileUtils
+from src.meetingscriber.services.audio_capture import AudioCapture
+from src.meetingscriber.services.transcriber import Transcriber
+from src.meetingscriber.utils.file_utils import FileUtils
 
 class TranscriptionApp:
     def __init__(self, root):

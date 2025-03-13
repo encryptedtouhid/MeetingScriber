@@ -1,6 +1,6 @@
-from services.audio_capture import AudioCapture
-from services.transcriber import Transcriber
-from utils.file_utils import FileUtils
+from src.meetingscriber.services.audio_capture import AudioCapture
+from src.meetingscriber.services.transcriber import Transcriber
+from src.meetingscriber.utils.file_utils import FileUtils
 
 def run_cli():
     capture = AudioCapture()
