@@ -12,34 +12,39 @@ The system consists of three main services:
 
 ## Prerequisites
 
-- Docker and Docker Compose
-- Python 3.9 or higher (for local development)
+- Python 3.9 or higher
 - A microphone for audio capture
 - Operating System: macOS, Windows, or Linux
 
-## Quick Start with Docker
+## Installation and Setup
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/encryptedtouhid/MeetingScriber.git
-   cd MeetingScriber
-   ```
+### 1. Clone the Repository
+```bash
+git clone https://github.com/encryptedtouhid/MeetingScriber.git
+cd MeetingScriber
+```
 
-2. Build and start the services:
-   ```bash
-   docker-compose up --build
-   ```
-
-## Manual Installation
-
-### 1. Set up Python Environment
+### 2. Set up Python Environment
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install components based on your needs:
+
+# For all components
 pip install -r requirements.txt
+
+# For server only
+pip install -r server/requirements.txt
+
+# For client only
+pip install -r client/requirements.txt
+
+# For broadcaster only
+pip install -r broadcaster/requirements.txt
 ```
 
-### 2. Install the Broadcaster Service
+### 3. Install the Broadcaster Service
 
 #### macOS
 ```bash
@@ -56,15 +61,19 @@ sudo ./install_scripts/linux/install_broadcaster.sh
 .\install_scripts\windows\install_broadcaster.bat
 ```
 
-### 3. Start the Server
+## Running the Services
+
+### 1. Start the Server
 ```bash
 python server/main.py
 ```
 
-### 4. Start the Client
+### 2. Start the Client
 ```bash
 python client/main.py
 ```
+
+The broadcaster service will start automatically after installation.
 
 ## Project Structure
 
@@ -73,21 +82,18 @@ python client/main.py
 │   ├── main.py           # Main broadcaster logic
 │   └── service/          # Platform-specific service files
 ├── server/               # Whisper transcription service
-│   ├── main.py          # WebSocket server & transcription
-│   └── Dockerfile
+│   └── main.py          # WebSocket server & transcription
 ├── client/              # Transcription display service
-│   ├── main.py         # Client UI
-│   └── Dockerfile
-├── docker-compose.yml   # Docker services configuration
+│   └── main.py         # Client UI
 ├── requirements.txt     # Python dependencies
 └── install_scripts/     # Platform-specific installers
 ```
 
 ## Configuration
 
-Default ports and settings can be modified in `.env`:
-- Broadcaster → Server: `ws://server:8000/audio`
-- Server → Client: `ws://server:8000/transcribe`
+Default WebSocket connections:
+- Broadcaster → Server: `ws://localhost:8000/audio`
+- Server → Client: `ws://localhost:8000/transcribe`
 
 ## Development
 
@@ -100,6 +106,20 @@ pip install -r requirements-dev.txt
 ```bash
 pytest
 ```
+
+## Troubleshooting
+
+### SSL Certificate Issues (macOS)
+If you encounter SSL certificate errors when downloading the Whisper model, try:
+```bash
+pip install --upgrade certifi
+export SSL_CERT_FILE="$(python -m certifi)"
+```
+
+### WebSocket Connection Issues
+- Ensure the server is running before starting the client
+- Check if ports are not blocked by firewall
+- Default ports can be modified in each service's configuration
 
 ## License
 
