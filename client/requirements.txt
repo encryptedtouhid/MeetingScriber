@@ -1,0 +1,10 @@
+# WebSocket and networking
+websockets>=11.0.3
+asyncio>=3.4.3
+
+# CLI interface
+click>=8.1.7
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.0.0

@@ -1,0 +1,16 @@
+# Audio processing
+pyaudio==0.2.13
+numpy>=1.24.3
+
+# WebSocket and networking
+websockets>=11.0.3
+asyncio>=3.4.3
+
+# Service management
+psutil>=5.9.5
+python-daemon>=3.0.1; platform_system != "Windows"
+pywin32>=306; platform_system == "Windows"
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.0.0
