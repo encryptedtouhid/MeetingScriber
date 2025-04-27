@@ -73,7 +73,13 @@ python server/main.py
 python client/main.py
 ```
 
-The broadcaster service will start automatically after installation.
+### Running Broadcaster Directly (Without Service)
+To run the broadcaster as a regular Python program instead of a system service:
+```bash
+python broadcaster/main.py
+```
+
+Note: When running the broadcaster directly, you'll need to keep the terminal window open. The service installation method is recommended for long-term use as it runs in the background and starts automatically with your system.
 
 ## Project Structure
 
