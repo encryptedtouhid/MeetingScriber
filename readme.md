@@ -107,6 +107,25 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
+## Uninstallation
+
+To uninstall the broadcaster service:
+
+### macOS
+```bash
+sudo ./install_scripts/macos/uninstall_broadcaster.sh
+```
+
+### Linux
+```bash
+sudo ./install_scripts/linux/uninstall_broadcaster.sh
+```
+
+### Windows
+```powershell
+.\install_scripts\windows\uninstall_broadcaster.ps1
+```
+
 ## Troubleshooting
 
 ### SSL Certificate Issues (macOS)
