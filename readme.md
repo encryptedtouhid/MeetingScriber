@@ -21,7 +21,7 @@ The system consists of three main services:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/MeetingScriber.git
+   git clone https://github.com/encryptedtouhid/MeetingScriber.git
    cd MeetingScriber
    ```
 
